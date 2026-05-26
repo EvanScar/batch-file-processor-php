@@ -79,7 +79,7 @@ try {
                 $tableData = [];
                 $hasTable = false;
 
-                // === НАДЁЖНОЕ ИЗВЛЕЧЕНИЕ ТЕКСТА ===
+                
                 if (in_array($ext, ['xlsx', 'xls', 'csv'])) {
                     $spreadsheet = SpreadsheetIOFactory::load($tmp);
                     $sheet = $spreadsheet->getActiveSheet();
@@ -143,7 +143,7 @@ try {
                     throw new Exception("Формат не поддерживается");
                 }
 
-                // Нормализация и принудительный UTF-8
+                
                 $rawText = preg_replace('/\s+/', ' ', $rawText);
                 $rawText = str_replace(["\r\n", "\r"], "\n", $rawText);
                 if (!mb_check_encoding($rawText, 'UTF-8')) {
@@ -152,10 +152,10 @@ try {
                 $rawText = trim($rawText);
                 $out = "$outDir$base.$param";
 
-                // === ГЕНЕРАЦИЯ ВЫХОДНОГО ФАЙЛА ===
+               
                 if ($param === 'pdf') {
                     $pdf = new TCPDF();
-                    $pdf->SetFont('dejavusans', '', 10); // Встроенный шрифт TCPDF с кириллицей
+                    $pdf->SetFont('dejavusans', '', 10); 
                     $pdf->AddPage();
                     
                     if ($hasTable && !empty($tableData)) {
@@ -280,6 +280,4 @@ try {
 } catch (Exception $e) {
     http_response_code(500);
     echo json_encode(['status'=>'error', 'message'=>$e->getMessage()], JSON_UNESCAPED_UNICODE);
-}"// TODO: Add JSON conversion logic" 
-/ /   T O D O :   A d d   J S O N   c o n v e r s i o n   l o g i c  
- 
+}

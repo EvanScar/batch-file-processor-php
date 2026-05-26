@@ -32,7 +32,7 @@
 <body>
     <h1>Пакетный обработчик файлов</h1>
     <div class="grid">
-        <!-- Окно 1: Переименование -->
+       
         <div class="card">
             <h2>Переименование файлов</h2>
             <div class="dropzone" id="dz-rename">Перетащите файлы или кликните</div>
@@ -46,7 +46,7 @@
             <div class="log" id="log-rename">Ожидание...</div>
         </div>
 
-        <!-- Окно 2: Изображения -->
+      
         <div class="card">
             <h2>Конвертация изображений</h2>
             <div class="dropzone" id="dz-img">Перетащите изображения</div>
@@ -60,7 +60,7 @@
             <div class="log" id="log-img">Ожидание...</div>
         </div>
 
-        <!-- Окно 3: Документы -->
+        
         <div class="card">
             <h2>Конвертация документов</h2>
             <div class="dropzone" id="dz-doc">Перетащите документы (txt, docx, xls)</div>
@@ -171,7 +171,6 @@ function updateFormats(files, select) {
         opts = ['pdf', 'docx', 'txt', 'xml'];
     }
     
-    // Убираем исходные форматы из списка
     opts = opts.filter(o => !uniqueExts.includes(o));
     if (!opts.length) opts = ['pdf', 'txt'];
     
