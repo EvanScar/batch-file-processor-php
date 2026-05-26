@@ -1,0 +1,7 @@
+"vendor/" 
+"uploads/" 
+"output/" 
+"*.log" 
+".DS_Store" 
+"Thumbs.db" 
+"composer.lock" 
